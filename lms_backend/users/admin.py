@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 from .models import User
 
 # Unregister default User
-admin.site.unregister(DefaultUser)
+# admin.site.unregister(DefaultUser)
 
 # Register custom User
 class CustomUserAdmin(UserAdmin):
