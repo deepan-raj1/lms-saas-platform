@@ -12,12 +12,13 @@ class RegisterView(generics.CreateAPIView):
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from .permissions import IsInstructorOrAdmin
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated, IsInstructorOrAdmin])
 def profile_view(request):
     return Response({
-        'message': 'Welcome to LMS',
+        'message': 'Access Granted',
         'username': request.user.username,
         'role': request.user.role
     })
