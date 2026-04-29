@@ -12,3 +12,10 @@ class CourseCreateView(generics.CreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(instructor=self.request.user)
+
+class CourseListView(generics.ListAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+    permission_classes = [IsAuthenticated]
+
+    
