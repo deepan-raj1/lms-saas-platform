@@ -42,3 +42,14 @@ class MyCoursesView(APIView):
         serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data)
 
+class InstructorCoursesView(APIView):
+    permission_classes = [IsAuthenticated, IsInstructorOrAdmin]
+
+    def get(self, request):
+        if request.user.role == 'admin':
+            courses = Course.objects.all()
+        else:
+            courses = Course.objects.filter(instructor=request.user)
+
+        serializer = CourseSerializer(courses, many=True)
+        return Response(serializer.data)
