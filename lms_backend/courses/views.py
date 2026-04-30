@@ -1,9 +1,11 @@
 from django.shortcuts import render
-from rest_framework import generics
 from .models import Course, Enrollment
 from .serializers import CourseSerializer, EnrollmentSerializer
-from rest_framework.permissions import IsAuthenticated
 from users.permissions import IsInstructorOrAdmin, IsStudent
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 class CourseCreateView(generics.CreateAPIView):
     queryset = Course.objects.all()
@@ -30,3 +32,13 @@ class EnrollCourseView(generics.CreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(student=self.request.user)
+
+class MyCoursesView(APIView):
+    permission_classes = [IsAuthenticated, IsStudent]
+
+    def get(self, request):
+        enrollments = Enrollment.objects.filter(student=request.user)
+        courses = [enrollment.course for enrollment in enrollments]
+        serializer = CourseSerializer(courses, many=True)
+        return Response(serializer.data)
+
