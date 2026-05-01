@@ -14,8 +14,8 @@ class Enrollment(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     enrolled_at = models.DateTimeField(auto_now_add=True)
 
-    # class Meta:
-    #     unique_together = ('student', 'course')
+    class Meta:
+        unique_together = ('student', 'course')
 
     def __str__(self):
         return f"{self.student} enrolled in {self.course}"
