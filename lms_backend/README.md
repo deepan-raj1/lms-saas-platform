@@ -49,3 +49,12 @@ A fully functional LMS backend system supporting multiple user roles with secure
 * Course progress tracking
 * Video/content management
 * Deployment (AWS / Render)
+
+
+## 📸 Screenshots
+
+### Create Course API
+![Create Course](screenshots/create-course.png)
+
+### My Courses API
+![My Courses](screenshots/my-courses.png)
