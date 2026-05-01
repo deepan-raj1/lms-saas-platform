@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Course, Enrollment
 from .serializers import CourseSerializer, EnrollmentSerializer
-from users.permissions import IsInstructorOrAdmin, IsStudent
+from users.permissions import IsInstructorOrAdmin, IsStudent, IsInstructorOwnerOrAdmin
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
@@ -53,3 +53,9 @@ class InstructorCoursesView(APIView):
 
         serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data)
+    
+class CourseUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+    permission_classes = [IsAuthenticated, IsInstructorOwnerOrAdmin]
+
