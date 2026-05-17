@@ -6,6 +6,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Courses from "./pages/Courses";
 import CreateCourse from "./pages/CreateCourse";
 import InstructorCourses from "./pages/InstructorCourses";
+import EditCourse from "./pages/EditCourse";
+
 
 function App() {
     return (
@@ -45,6 +47,15 @@ function App() {
                     element={
                         <ProtectedRoute>
                             <InstructorCourses />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/edit-course/:Id"
+                    element={
+                        <ProtectedRoute>
+                            <EditCourse />
                         </ProtectedRoute>
                     }
                 />

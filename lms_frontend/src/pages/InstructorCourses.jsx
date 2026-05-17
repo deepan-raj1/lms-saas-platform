@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
+import { Link } from "react-router-dom";
 
 function InstructorCourses() {
     const [courses, setCourses] = useState([]);
@@ -28,6 +29,12 @@ function InstructorCourses() {
                 <div key={course.id} style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
                     <h3>{course.title}</h3>
                     <p>{course.description}</p>
+
+                    <Link to={`/edit-course/${course.id}`}>
+                        <button style={{ backgroundColor: "blue", color: "white", border: "none", padding: "5px 10px", cursor: "pointer", marginRight: "10px" }}>
+                            Edit
+                        </button>
+                    </Link>
 
                     <button 
                         onClick={() => handleDelete(course.id)}
