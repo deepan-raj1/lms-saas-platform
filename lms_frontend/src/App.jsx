@@ -7,6 +7,7 @@ import Courses from "./pages/Courses";
 import CreateCourse from "./pages/CreateCourse";
 import InstructorCourses from "./pages/InstructorCourses";
 import EditCourse from "./pages/EditCourse";
+import Navbar from "./components/Navbar";
 
 
 function App() {

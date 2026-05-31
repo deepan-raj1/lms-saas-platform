@@ -12,10 +12,12 @@ function Login() {
         password,
       });
 
-      localStorage.setItem("token", res.data.access);
-      alert("Login successful");
+      console.log(res.data);
 
-      window.location.href = "/dashboard";
+      localStorage.setItem("token", res.data.access);
+      localStorage.setItem("role", res.data.role);
+      alert("Login successful");
+      window.location.href = "/instructor-courses";
     } catch (err) {
       alert("Login failed");
     }

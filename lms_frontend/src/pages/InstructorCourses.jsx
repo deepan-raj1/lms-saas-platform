@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 function InstructorCourses() {
     const [courses, setCourses] = useState([]);
@@ -24,6 +25,7 @@ function InstructorCourses() {
 
     return (
         <div>
+            <Navbar />
             <h2>Instructor Courses</h2>
             {courses.map((course) => (
                 <div key={course.id} style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>

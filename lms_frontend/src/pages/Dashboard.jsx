@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
+import Navbar from "../components/Navbar";
 
 function Dashboard() {
     const [courses, setCourses] = useState([]);
@@ -12,6 +13,7 @@ function Dashboard() {
 
     return (
         <div>
+            <Navbar />
             <h2>My Courses</h2>
 
             <button

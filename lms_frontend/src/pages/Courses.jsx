@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
+import Navbar from "../components/Navbar";
 
 function Courses() {
     const [courses, setCourses] = useState([]);
@@ -25,6 +26,7 @@ function Courses() {
 
     return (
         <div>
+            <Navbar />
             <h2>All Courses</h2>
 
             {courses.map((course) => (

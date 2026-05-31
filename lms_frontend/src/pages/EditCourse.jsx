@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import API from "../services/api";
+import Navbar from "../components/Navbar";
 
 function EditCourse() {
     const { Id } = useParams();
@@ -35,6 +36,7 @@ function EditCourse() {
 
     return (
         <div>
+            <Navbar />
             <h2>Edit Course</h2>
 
             <input

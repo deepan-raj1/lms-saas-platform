@@ -1,5 +1,6 @@
 import { useState } from "react";
 import API from "../services/api";
+import Navbar from "../components/Navbar";
 
 function CreateCourse() {
     const [title, setTitle] = useState("");
@@ -23,6 +24,7 @@ function CreateCourse() {
 
     return (
         <div>
+            <Navbar />
             <h2>Create Course</h2>
             <input
                 type="text"
