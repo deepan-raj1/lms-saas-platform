@@ -12,9 +12,9 @@ function Dashboard() {
     }, []);
 
     return (
-        <div>
+        <div className="max-w-5xl mx-auto p-6">
             <Navbar />
-            <h2>My Courses</h2>
+            <h2 className="text-3xl font-bold mb-6">My Courses</h2>
 
             <button
                 onClick={() => {
@@ -26,9 +26,9 @@ function Dashboard() {
             </button>
 
             {courses.map((course) => (
-                <div key={course.id}>
-                    <h3>{course.title}</h3>
-                    <p>{course.description}</p>
+                <div key={course.id} className="bg-white shadow-md rounded-lg p-5 mb-4 border">
+                    <h3 className="text-xl font-semibold">{course.title}</h3>
+                    <p className="text-gray-600 mt-2">{course.description}</p>
                 </div>
             ))}
         </div>

@@ -30,10 +30,15 @@ function Courses() {
             <h2>All Courses</h2>
 
             {courses.map((course) => (
-                <div key={course.id} style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
-                    <h3>{course.title}</h3>
-                    <p>{course.description}</p>
-                    <button onClick={() => handleEnroll(course.id)}>Enroll</button>
+                <div key={course.id} className="border rounded-lg shadow-md p-4 mb-4 bg-white">
+                    <h3 className="text-xl font-bold mb-2">{course.title}</h3>
+                    <p className="text-gray-600 mb-3">{course.description}</p>
+                    <button 
+                        onClick={() => handleEnroll(course.id)} 
+                        className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
+                    >
+                        Enroll
+                    </button>
 
                     <hr />
                 </div>

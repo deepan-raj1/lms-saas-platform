@@ -28,19 +28,19 @@ function InstructorCourses() {
             <Navbar />
             <h2>Instructor Courses</h2>
             {courses.map((course) => (
-                <div key={course.id} style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
-                    <h3>{course.title}</h3>
-                    <p>{course.description}</p>
+                <div key={course.id} className="bg-white shadow-md rounded-lg p-5 mb-4 border">
+                    <h3 className="text-xl font-semibold">{course.title}</h3>
+                    <p className="text-gray-600 mt-2">{course.description}</p>
 
                     <Link to={`/edit-course/${course.id}`}>
-                        <button style={{ backgroundColor: "blue", color: "white", border: "none", padding: "5px 10px", cursor: "pointer", marginRight: "10px" }}>
+                        <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded mt-3">
                             Edit
                         </button>
                     </Link>
 
                     <button 
                         onClick={() => handleDelete(course.id)}
-                        style={{ backgroundColor: "red", color: "white", border: "none", padding: "5px 10px", cursor: "pointer" }}
+                        className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded mt-3 mr-2"
                     >
                         Delete
                     </button>
