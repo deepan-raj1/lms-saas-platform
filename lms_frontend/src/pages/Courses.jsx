@@ -19,9 +19,12 @@ function Courses() {
              });
             alert("Enrollment successful!");
         } catch (err) {
-            console.log(err.response);
-            alert("Enrollment failed");
-        }
+            alert(
+                err.response?.data?.detail ||
+                err.response?.data ||
+                "Enrollment failed"
+            );
+}
     };
 
     const filteredCourses = courses.filter((course) =>

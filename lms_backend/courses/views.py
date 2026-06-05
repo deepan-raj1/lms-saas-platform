@@ -6,6 +6,8 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.exceptions import ValidationError
 
 class CourseCreateView(generics.CreateAPIView):
     queryset = Course.objects.all()
@@ -31,8 +33,15 @@ class EnrollCourseView(generics.CreateAPIView):
     permission_classes = [IsAuthenticated, IsStudent]
 
     def perform_create(self, serializer):
-        serializer.save(student=self.request.user)
+        course = serializer.validated_data["course"]
 
+        if Enrollment.objects.filter(
+            student=self.request.user,
+            course=course
+        ).exists():
+            raise ValidationError("Already enrolled")
+
+        serializer.save(student=self.request.user)
 class MyCoursesView(APIView):
     permission_classes = [IsAuthenticated, IsStudent]
 
