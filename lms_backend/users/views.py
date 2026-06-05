@@ -15,10 +15,10 @@ from rest_framework.response import Response
 from .permissions import IsInstructorOrAdmin
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated, IsInstructorOrAdmin])
+@permission_classes([IsAuthenticated])
 def profile_view(request):
     return Response({
-        'message': 'Access Granted',
         'username': request.user.username,
+        'email': request.user.email,
         'role': request.user.role
     })

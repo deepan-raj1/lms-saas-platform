@@ -55,6 +55,11 @@ function Navbar() {
         Courses
       </Link>
 
+      <Link to="/profile" className="hover:underline">
+        Profile
+      </Link>
+
+
       <Link to="/create-course" className="hover:underline">
         Create Course
       </Link>

@@ -8,6 +8,7 @@ import CreateCourse from "./pages/CreateCourse";
 import InstructorCourses from "./pages/InstructorCourses";
 import EditCourse from "./pages/EditCourse";
 import Navbar from "./components/Navbar";
+import Profile from "./pages/Profile";
 
 
 function App() {
@@ -57,6 +58,14 @@ function App() {
                     element={
                         <ProtectedRoute>
                             <EditCourse />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/profile"
+                    element={
+                        <ProtectedRoute>
+                            <Profile />
                         </ProtectedRoute>
                     }
                 />
