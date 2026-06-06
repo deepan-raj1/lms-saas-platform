@@ -24,16 +24,27 @@ function InstructorCourses() {
     };
 
     return (
-        <div>
-            <Navbar />
-            <h2>Instructor Courses</h2>
+    <div>
+        <Navbar />
+
+        <div className="max-w-6xl mx-auto p-6">
+
+            <h2 className="text-3xl font-bold mb-4">
+                Instructor Courses
+            </h2>
+
+            <div className="bg-green-100 p-4 rounded-lg mb-6 shadow">
+                <h3 className="text-xl font-semibold">
+                    Courses Created: {courses.length}
+                </h3>
+            </div>
             {courses.map((course) => (
                 <div key={course.id} className="bg-white shadow-md rounded-lg p-5 mb-4 border">
                     <h3 className="text-xl font-semibold">{course.title}</h3>
                     <p className="text-gray-600 mt-2">{course.description}</p>
 
                     <Link to={`/edit-course/${course.id}`}>
-                        <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded mt-3">
+                        <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded mt-3 mr-2">
                             Edit
                         </button>
                     </Link>
@@ -45,10 +56,10 @@ function InstructorCourses() {
                         Delete
                     </button>
 
-                    <hr />
                 </div>
             ))}
         </div>
+    </div>
     );
 }
 
