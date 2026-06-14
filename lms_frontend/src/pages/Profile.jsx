@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/DashboardNavbar";
 
 function Profile() {
     const [user, setUser] = useState(null);

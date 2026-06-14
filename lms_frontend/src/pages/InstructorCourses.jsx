@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/DashboardNavbar";
 
 function InstructorCourses() {
     const [courses, setCourses] = useState([]);
