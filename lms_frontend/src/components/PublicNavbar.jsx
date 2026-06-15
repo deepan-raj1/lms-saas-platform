@@ -9,7 +9,7 @@ function PublicNavbar() {
           to="/"
           className="text-2xl font-bold text-indigo-600"
         >
-          Zenix LMS
+          ⚡ Zenix LMS
         </Link>
 
         <div className="hidden md:flex gap-8 items-center">
