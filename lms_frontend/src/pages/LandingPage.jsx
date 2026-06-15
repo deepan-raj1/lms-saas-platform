@@ -4,6 +4,7 @@ import FeaturedCourses from "../components/FeaturedCourses";
 import CategoriesSection from "../components/CategoriesSection";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Testimonials from "../components/Testimonials";
+import CTASection from "../components/CTASection";
 
 const LandingPage = () => {
   return (
@@ -14,6 +15,7 @@ const LandingPage = () => {
       <CategoriesSection />
       <WhyChooseUs />
       <Testimonials />
+      <CTASection />
     </>
   );
 };
