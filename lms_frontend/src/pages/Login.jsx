@@ -5,7 +5,7 @@ import API from "../services/api";
 function Login() {
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState("");
+  const [usernameOrEmail, setUsernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [loading, setLoading] = useState(false);
@@ -16,17 +16,23 @@ function Login() {
     setError("");
 
     try {
-      const res = await API.post("token/", {
-        username,
+      const res = await API.post("users/login/", {
+        username_or_email: usernameOrEmail,
         password,
       });
 
       localStorage.setItem("token", res.data.access);
       localStorage.setItem("role", res.data.role);
+      localStorage.setItem("username", res.data.username);
+      localStorage.setItem("email", res.data.email);
 
       navigate("/dashboard");
     } catch (err) {
-      setError("Invalid username or password");
+      setError(
+        err.response?.data?.non_field_errors?.[0] ||
+        err.response?.data?.detail ||
+        "Invalid username/email or password"
+      );
     } finally {
       setLoading(false);
     }
@@ -74,9 +80,9 @@ function Login() {
 
             <input
               type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Email or Username"
+              value={usernameOrEmail}
+              onChange={(e) => setUsernameOrEmail(e.target.value)}
               className="w-full border p-3 rounded-lg"
             />
 
