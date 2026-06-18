@@ -18,7 +18,10 @@ from .permissions import IsInstructorOrAdmin
 @permission_classes([IsAuthenticated])
 def profile_view(request):
     return Response({
+        'full_name': request.user.full_name,
         'username': request.user.username,
         'email': request.user.email,
-        'role': request.user.role
+        'role': request.user.role,
+        'mobile_number': request.user.mobile_number,
+        'whatsapp_number': request.user.whatsapp_number,
     })
