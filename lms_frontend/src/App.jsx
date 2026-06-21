@@ -3,7 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
+import StudentDashboard from "./pages/StudentDashboard";
+import InstructorDashboard from "./pages/InstructorDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Courses from "./pages/Courses";
 import CreateCourse from "./pages/CreateCourse";
@@ -22,14 +24,33 @@ function App() {
                 <Route path="/login" element={<Login />} />
 
                 <Route
-                    path="/dashboard"
+                    path="/student-dashboard"
                     element={
                         <ProtectedRoute>
-                            <DashboardNavbar />
-                            <Dashboard />
+                            <StudentDashboard />
                         </ProtectedRoute>
                     }
                 />
+
+                <Route
+                    path="/instructor-dashboard"
+                    element={
+                        <ProtectedRoute>
+                        <InstructorDashboard />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/admin-dashboard"
+                    element={
+                        <ProtectedRoute>
+                        <AdminDashboard />
+                        </ProtectedRoute>
+                    }
+                />
+
+
 
                 <Route
                     path="/courses"

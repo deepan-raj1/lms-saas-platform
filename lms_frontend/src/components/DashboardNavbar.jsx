@@ -1,44 +1,12 @@
-// import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-// function Navbar() {
-//     const handleLogout = () => {
-//         localStorage.clear();
-//         window.location.href = "/";
-//     };
+function DashboardNavbar() {
+  const navigate = useNavigate();
+  const role = localStorage.getItem("role");
 
-//     return (
-//         <nav
-//             style={{
-//                 display: "flex",
-//                 gap: "15px",
-//                 padding: "15px",
-//                 backgroundColor: "#f0f0f0",
-//                 marginBottom: "20px",
-//             }}
-//         >
-//             <h3>LMS Platform</h3>
-
-//             <Link to="/dashboard">Dashboard</Link>
-//             <Link to="/courses">Courses</Link>
-//             <Link to="/create-course">Create Course</Link>
-//             <Link to="/instructor-courses">Instructor Courses</Link>
-
-//             <button onClick={handleLogout} style={{ marginLeft: "auto" }}>
-//                 Logout
-//             </button>
-//         </nav>
-//     );
-// }
-
-// export default Navbar;
-
-
-import { Link } from "react-router-dom";
-
-function Navbar() {
   const handleLogout = () => {
     localStorage.clear();
-    window.location.href = "/";
+    navigate("/");
   };
 
   return (
@@ -47,9 +15,20 @@ function Navbar() {
         LMS Platform
       </h1>
 
-      <Link to="/dashboard" className="hover:underline">
+      <Link
+        to={
+          role === "admin"
+            ? "/admin-dashboard"
+            : role === "instructor"
+            ? "/instructor-dashboard"
+            : "/student-dashboard"
+        }
+        className="hover:underline"
+      >
         Dashboard
       </Link>
+
+
 
       <Link to="/courses" className="hover:underline">
         Courses
@@ -59,14 +38,17 @@ function Navbar() {
         Profile
       </Link>
 
+      {role === "instructor" && (
+        <>
+          <Link to="/create-course" className="hover:underline">
+            Create Course
+          </Link>
 
-      <Link to="/create-course" className="hover:underline">
-        Create Course
-      </Link>
-
-      <Link to="/instructor-courses" className="hover:underline">
-        Instructor Courses
-      </Link>
+          <Link to="/instructor-courses" className="hover:underline">
+            Instructor Courses
+          </Link>
+        </>
+      )}
 
       <button
         onClick={handleLogout}
@@ -78,4 +60,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default DashboardNavbar;

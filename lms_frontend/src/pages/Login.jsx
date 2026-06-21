@@ -26,7 +26,15 @@ function Login() {
       localStorage.setItem("username", res.data.username);
       localStorage.setItem("email", res.data.email);
 
-      navigate("/dashboard");
+      if (res.data.role === "student") {
+        navigate("/student-dashboard");
+      }
+      else if (res.data.role === "instructor") {
+        navigate("/instructor-dashboard");
+      }
+      else if (res.data.role === "admin") {
+        navigate("/admin-dashboard");
+      }
     } catch (err) {
       setError(
         err.response?.data?.non_field_errors?.[0] ||
