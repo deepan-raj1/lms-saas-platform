@@ -1,6 +1,6 @@
 const HeroSection = () => {
   return (
-    <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white min-h-screen flex items-center">
+    <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white min-h-[85vh] flex items-center">
 
       <div className="max-w-7xl mx-auto px-6">
 
