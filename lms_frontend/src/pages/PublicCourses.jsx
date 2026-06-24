@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import API from "../services/api";
 import PublicNavbar from "../components/PublicNavbar";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function PublicCourses() {
     const [courses, setCourses] = useState([]);
@@ -136,11 +137,13 @@ function PublicCourses() {
 
                                 {/* Thumbnail */}
                                 {course.thumbnail ? (
-                                    <img
-                                        src={course.thumbnail}
-                                        alt={course.title}
-                                        className="w-full h-52 object-cover"
-                                    />
+                                    <Link to={`/courses/${course.id}`}>
+                                        <img
+                                            src={course.thumbnail}
+                                            alt={course.title}
+                                            className="w-full h-52 object-cover"
+                                        />
+                                    </Link>
                                 ) : (
                                     <div className="h-52 bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center">
                                         <span className="text-white text-xl font-bold">
@@ -151,10 +154,11 @@ function PublicCourses() {
 
                                 {/* Course Content */}
                                 <div className="p-5">
-
-                                    <h3 className="text-xl font-bold mb-2">
-                                        {course.title}
-                                    </h3>
+                                    <Link to={`/courses/${course.id}`}>
+                                        <h3 className="text-xl font-bold mb-2">
+                                            {course.title}
+                                        </h3>
+                                    </Link>
 
                                     <p className="text-sm text-gray-500 mb-3">
                                         Instructor: {course.instructor_name}
