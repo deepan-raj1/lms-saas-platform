@@ -3,7 +3,7 @@ from .models import Course, Enrollment
 from .serializers import CourseSerializer, EnrollmentSerializer
 from users.permissions import IsInstructorOrAdmin, IsStudent, IsInstructorOwnerOrAdmin
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -22,12 +22,12 @@ class CourseCreateView(generics.CreateAPIView):
 class CourseListView(generics.ListAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 class CourseDetailView(generics.RetrieveAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 class EnrollCourseView(generics.CreateAPIView):
     queryset = Enrollment.objects.all()

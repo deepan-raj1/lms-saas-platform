@@ -14,6 +14,8 @@ function InstructorCourses() {
     }, []);
 
     const handleDelete = async (courseId) => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this course? This action cannot be undone.");
+        if (!confirmDelete) return;
         try {
             await API.delete(`courses/${courseId}/edit/`);
             setCourses(courses.filter(course => course.id !== courseId));

@@ -25,6 +25,7 @@ function Login() {
       localStorage.setItem("role", res.data.role);
       localStorage.setItem("username", res.data.username);
       localStorage.setItem("email", res.data.email);
+      localStorage.setItem("refresh", res.data.refresh);
 
       if (res.data.role === "student") {
         navigate("/student-dashboard");

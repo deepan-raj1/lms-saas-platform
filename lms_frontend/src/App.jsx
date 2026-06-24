@@ -7,7 +7,7 @@ import StudentDashboard from "./pages/StudentDashboard";
 import InstructorDashboard from "./pages/InstructorDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Courses from "./pages/Courses";
+import PublicCourses from "./pages/PublicCourses";
 import CreateCourse from "./pages/CreateCourse";
 import InstructorCourses from "./pages/InstructorCourses";
 import EditCourse from "./pages/EditCourse";
@@ -55,9 +55,7 @@ function App() {
                 <Route
                     path="/courses"
                     element={
-                        <ProtectedRoute>
-                        <Courses />
-                        </ProtectedRoute>
+                        <PublicCourses />
                     }
                 />
 
