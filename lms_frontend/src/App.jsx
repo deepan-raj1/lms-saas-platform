@@ -14,6 +14,8 @@ import EditCourse from "./pages/EditCourse";
 import DashboardNavbar from "./components/DashboardNavbar";
 import Profile from "./pages/Profile";
 import CourseDetail from "./pages/CourseDetail";
+import About from "./pages/About";
+
 
 
 function App() {
@@ -99,6 +101,10 @@ function App() {
                     element={
                         <CourseDetail />
                     }
+                />
+                <Route
+                    path="/about"
+                    element={<About />}
                 />
             </Routes>
         </BrowserRouter>
