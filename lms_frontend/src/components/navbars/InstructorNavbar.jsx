@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 
-function DashboardNavbar() {
+function InstructorNavbar() {
   const navigate = useNavigate();
   const role = localStorage.getItem("role");
 
@@ -60,4 +60,4 @@ function DashboardNavbar() {
   );
 }
 
-export default DashboardNavbar;
+export default InstructorNavbar;

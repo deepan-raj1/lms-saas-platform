@@ -1,4 +1,4 @@
-import PublicNavbar from "../components/PublicNavbar";
+import PublicNavbar from "../components/navbars/PublicNavbar";
 import PublicFooter from "../components/PublicFooter";
 
 

@@ -11,7 +11,6 @@ import PublicCourses from "./pages/PublicCourses";
 import CreateCourse from "./pages/CreateCourse";
 import InstructorCourses from "./pages/InstructorCourses";
 import EditCourse from "./pages/EditCourse";
-import DashboardNavbar from "./components/DashboardNavbar";
 import Profile from "./pages/Profile";
 import CourseDetail from "./pages/CourseDetail";
 import About from "./pages/About";

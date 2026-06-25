@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
-import Navbar from "../components/DashboardNavbar";
+import StudentNavbar from "../components/navbars/StudentNavbar";
 import { useNavigate } from "react-router-dom";
 
 
@@ -18,7 +18,7 @@ function StudentDashboard() {
 
     return (
     <div className="min-h-screen bg-gray-100">
-        <Navbar />
+        <StudentNavbar />
 
         <div className="max-w-5xl mx-auto p-6">
 

@@ -1,4 +1,4 @@
-import PublicNavbar from "../components/PublicNavbar";
+import PublicNavbar from "../components/navbars/PublicNavbar";
 import HeroSection from "../components/HeroSection";
 import FeaturedCourses from "../components/FeaturedCourses";
 import CategoriesSection from "../components/CategoriesSection";

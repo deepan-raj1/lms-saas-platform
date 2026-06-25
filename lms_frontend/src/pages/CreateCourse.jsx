@@ -1,6 +1,6 @@
 import { useState } from "react";
 import API from "../services/api";
-import Navbar from "../components/DashboardNavbar";
+import InstructorNavbar from "../components/navbars/InstructorNavbar";
 import { useNavigate } from "react-router-dom";
 
 function CreateCourse() {
@@ -59,7 +59,7 @@ function CreateCourse() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <Navbar />
+      <InstructorNavbar />
 
       <div className="max-w-4xl mx-auto p-6">
 

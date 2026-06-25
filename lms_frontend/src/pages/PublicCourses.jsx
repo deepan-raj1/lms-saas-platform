@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
-import PublicNavbar from "../components/PublicNavbar";
+import PublicNavbar from "../components/navbars/PublicNavbar";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PublicFooter from "../components/PublicFooter";

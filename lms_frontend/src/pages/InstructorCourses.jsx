@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
 import { useNavigate, Link } from "react-router-dom";
-import Navbar from "../components/DashboardNavbar";
+import InstructorNavbar from "../components/navbars/InstructorNavbar";
+
 
 function InstructorCourses() {
     const [courses, setCourses] = useState([]);
@@ -28,7 +29,7 @@ function InstructorCourses() {
 
     return (
     <div className="min-h-screen bg-gray-100">
-        <Navbar />
+        <InstructorNavbar />
 
         <div className="max-w-6xl mx-auto p-6">
 
