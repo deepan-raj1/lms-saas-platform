@@ -6,7 +6,7 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import Testimonials from "../components/Testimonials";
 import CTASection from "../components/CTASection";
 import FAQSection from "../components/FAQSection";
-import Footer from "../components/Footer";
+import PublicFooter from "../components/PublicFooter";
 
 const LandingPage = () => {
   return (
@@ -19,7 +19,7 @@ const LandingPage = () => {
       <Testimonials />
       <CTASection />
       <FAQSection />
-      <Footer />
+      <PublicFooter />
     </>
   );
 };

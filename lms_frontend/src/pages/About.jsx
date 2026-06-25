@@ -1,4 +1,6 @@
 import PublicNavbar from "../components/PublicNavbar";
+import PublicFooter from "../components/PublicFooter";
+
 
 function About() {
     return (
@@ -211,6 +213,7 @@ function About() {
                 </div>
 
             </div>
+            <PublicFooter />
         </div>
     );
 }

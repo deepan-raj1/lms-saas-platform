@@ -3,6 +3,7 @@ import API from "../services/api";
 import PublicNavbar from "../components/PublicNavbar";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import PublicFooter from "../components/PublicFooter";
 
 function PublicCourses() {
     const [courses, setCourses] = useState([]);
@@ -186,8 +187,11 @@ function PublicCourses() {
                 )}
 
             </div>
+
+            <PublicFooter />
         </div>
     );
 }
 
 export default PublicCourses;
+

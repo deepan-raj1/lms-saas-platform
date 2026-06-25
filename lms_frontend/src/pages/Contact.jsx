@@ -1,4 +1,6 @@
 import PublicNavbar from "../components/PublicNavbar";
+import PublicFooter from "../components/PublicFooter";
+
 
 function Contact() {
     return (
@@ -139,6 +141,7 @@ function Contact() {
                 </div>
 
             </div>
+            <PublicFooter />
         </div>
     );
 }

@@ -1,92 +1,128 @@
+import { Link } from "react-router-dom";
+
 const HeroSection = () => {
-  return (
-    <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white min-h-[85vh] flex items-center">
+return ( <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white min-h-[85vh] flex items-center">
 
-      <div className="max-w-7xl mx-auto px-6">
+```
+  <div className="max-w-7xl mx-auto px-6">
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
 
-          {/* Left Content */}
-          <div>
+      {/* Left Content */}
+      <div>
 
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-              Learn Job-Ready Skills.
+        {/* Brand */}
+        <p className="text-xl font-semibold text-indigo-200 mb-3">
+          ZENIX IT SKILLS ACADEMY
+        </p>
+
+        {/* Tagline */}
+         <h1 className="text-5xl md:text-6xl font-bold leading-tight mt-3">
+               Learn.
               <br />
-              Build Your Future.
-            </h1>
+              Build.
+              <br />
+              Succeed.
+          </h1>
 
-            <p className="mt-6 text-lg text-indigo-100">
-              Master Python, Full Stack Development,
-              AI & Machine Learning through practical
-              industry-focused courses.
-            </p>
+        {/* Description */}
+        <p className="mt-6 text-lg text-indigo-100 max-w-2xl">
+          Software Training & Placement Guidance for aspiring
+          developers, AI engineers, and technology professionals.
+        </p>
 
-            <div className="mt-8 flex gap-4 flex-wrap">
+        {/* Skills */}
+        <p className="mt-4 text-indigo-200">
+          Python Full Stack • AI & Machine Learning • Data Analytics • Real Projects
+        </p>
 
-              <button className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100">
-                Explore Courses
-              </button>
+        {/* Trust Badge */}
+        <div className="mt-6">
+          <span className="bg-white/20 px-4 py-2 rounded-full text-sm">
+            🚀 Practical Skills. Career Growth. Industry Readiness.
+          </span>
+        </div>
 
-              <button className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-indigo-600 transition">
-                Become Instructor
-              </button>
+        {/* Buttons */}
+        <div className="mt-8 flex gap-4 flex-wrap">
 
-            </div>
+          <Link
+            to="/courses"
+            className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
+          >
+            Explore Courses
+          </Link>
 
-            {/* Stats */}
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <Link
+            to="/login"
+            className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-indigo-600 transition"
+          >
+            Get Started
+          </Link>
 
-              <div>
-                <h3 className="text-2xl font-bold">500+</h3>
-                <p>Students</p>
-              </div>
+        </div>
 
-              <div>
-                <h3 className="text-2xl font-bold">20+</h3>
-                <p>Courses</p>
-              </div>
+        {/* Stats */}
+        {/* <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
 
-              <div>
-                <h3 className="text-2xl font-bold">10+</h3>
-                <p>Instructors</p>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-bold">95%</h3>
-                <p>Satisfaction</p>
-              </div>
-
-            </div>
-
+          <div>
+            <h3 className="text-2xl font-bold">20+</h3>
+            <p className="text-indigo-100">Courses</p>
           </div>
 
-          {/* Right Content */}
-          <div className="hidden md:flex justify-center">
-
-            <div className="bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-2xl">
-
-              <h2 className="text-3xl font-bold mb-4">
-                🚀 Start Learning Today
-              </h2>
-
-              <p>
-                Practical Courses
-                <br />
-                Real Projects
-                <br />
-                Career Growth
-              </p>
-
-            </div>
-
+          <div>
+            <h3 className="text-2xl font-bold">500+</h3>
+            <p className="text-indigo-100">Students</p>
           </div>
+
+          <div>
+            <h3 className="text-2xl font-bold">10+</h3>
+            <p className="text-indigo-100">Projects</p>
+          </div>
+
+          <div>
+            <h3 className="text-2xl font-bold">95%</h3>
+            <p className="text-indigo-100">Satisfaction</p>
+          </div>
+
+        </div> */}
+
+      </div>
+
+      {/* Right Content */}
+      <div className="hidden md:flex justify-center">
+
+        <div className="bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-2xl max-w-md">
+
+          <h2 className="text-3xl font-bold mb-6">
+            🚀 Why Choose Zenix?
+          </h2>
+
+          <ul className="space-y-4 text-lg">
+
+            <li>✅ Industry-Focused Training</li>
+
+            <li>✅ Real-World Projects</li>
+
+            <li>✅ Placement Guidance</li>
+
+            <li>✅ Job-Ready Skill Development</li>
+
+            <li>✅ Learn from Practical Examples</li>
+
+          </ul>
 
         </div>
 
       </div>
 
-    </section>
-  );
+    </div>
+
+  </div>
+
+</section>
+
+);
 };
 
 export default HeroSection;

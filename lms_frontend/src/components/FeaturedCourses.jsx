@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const courses = [
   {
     id: 1,
@@ -63,11 +65,12 @@ function FeaturedCourses() {
                   ⭐ {course.rating}
                 </p>
 
-                <button
-                  className="mt-4 w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700"
-                >
-                  View Course
-                </button>
+                <Link
+                to={`/courses`}
+                className="block mt-4 w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 text-center"
+              >
+                View Course
+              </Link>
 
               </div>
 
