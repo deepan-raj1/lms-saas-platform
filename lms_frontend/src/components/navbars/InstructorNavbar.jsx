@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 function InstructorNavbar() {
   const navigate = useNavigate();
-  const role = localStorage.getItem("role");
 
   const handleLogout = () => {
     localStorage.clear();
@@ -10,52 +9,58 @@ function InstructorNavbar() {
   };
 
   return (
-    <nav className="bg-blue-600 text-white px-6 py-4 flex items-center gap-6 shadow-md">
-      <h1 className="text-xl font-bold">
-        LMS Platform
-      </h1>
+    <nav className="bg-indigo-600 text-white px-6 py-4 shadow-md">
 
-      <Link
-        to={
-          role === "admin"
-            ? "/admin-dashboard"
-            : role === "instructor"
-            ? "/instructor-dashboard"
-            : "/student-dashboard"
-        }
-        className="hover:underline"
-      >
-        Dashboard
-      </Link>
+      <div className="max-w-7xl mx-auto flex items-center">
 
+        {/* Logo */}
+        <h1 className="text-xl font-bold">
+          Zenix LMS
+        </h1>
 
+        {/* Menu */}
+        <div className="flex gap-6 ml-10">
 
-      <Link to="/courses" className="hover:underline">
-        Courses
-      </Link>
+          <Link
+            to="/instructor-dashboard"
+            className="hover:text-indigo-200"
+          >
+            Dashboard
+          </Link>
 
-      <Link to="/profile" className="hover:underline">
-        Profile
-      </Link>
+          <Link
+            to="/instructor-courses"
+            className="hover:text-indigo-200"
+          >
+            My Courses
+          </Link>
 
-      {role === "instructor" && (
-        <>
-          <Link to="/create-course" className="hover:underline">
+          <Link
+            to="/create-course"
+            className="hover:text-indigo-200"
+          >
             Create Course
           </Link>
 
-          <Link to="/instructor-courses" className="hover:underline">
-            Instructor Courses
+          <Link
+            to="/profile"
+            className="hover:text-indigo-200"
+          >
+            Profile
           </Link>
-        </>
-      )}
 
-      <button
-        onClick={handleLogout}
-        className="ml-auto bg-red-500 hover:bg-red-600 px-4 py-2 rounded"
-      >
-        Logout
-      </button>
+        </div>
+
+        {/* Logout */}
+        <button
+          onClick={handleLogout}
+          className="ml-auto bg-red-500 hover:bg-red-600 px-4 py-2 rounded"
+        >
+          Logout
+        </button>
+
+      </div>
+
     </nav>
   );
 }
