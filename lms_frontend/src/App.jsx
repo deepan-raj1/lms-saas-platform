@@ -15,6 +15,8 @@ import Profile from "./pages/Profile";
 import CourseDetail from "./pages/CourseDetail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ManageCourse from "./pages/ManageCourse";
+
 
 
 
@@ -110,6 +112,14 @@ function App() {
                 <Route
                     path="/contact"
                     element={<Contact />}
+                />
+                <Route
+                    path="/manage-course/:id"
+                    element={
+                        <ProtectedRoute>
+                            <ManageCourse />
+                        </ProtectedRoute>
+                    }
                 />
             </Routes>
         </BrowserRouter>

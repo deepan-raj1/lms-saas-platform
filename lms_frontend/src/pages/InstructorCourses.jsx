@@ -154,6 +154,7 @@ function InstructorCourses() {
                                 <div className="flex gap-2 mt-5">
 
                                     <button
+                                        onClick={() => navigate(`/manage-course/${course.id}`)}
                                         className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded"
                                     >
                                         Manage
