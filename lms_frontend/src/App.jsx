@@ -6,6 +6,10 @@ import Login from "./pages/public/Login";
 import StudentDashboard from "./pages/student/StudentDashboard";
 import InstructorDashboard from "./pages/instructor/InstructorDashboard";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminCourses from "./pages/admin/AdminCourses";
+import AdminInstructors from "./pages/admin/AdminInstructors";
+import AdminStudents from "./pages/admin/AdminStudents";
+import AdminProfile from "./pages/admin/AdminProfile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicCourses from "./pages/public/PublicCourses";
 import CreateCourse from "./pages/instructor/CreateCourse";
@@ -158,6 +162,41 @@ function App() {
                     element={
                         <ProtectedRoute>
                             <BrowseCourses />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/admin-courses"
+                    element={
+                        <ProtectedRoute>
+                            <AdminCourses />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/admin-instructors"
+                    element={
+                        <ProtectedRoute>
+                            <AdminInstructors />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/admin-students"
+                    element={
+                        <ProtectedRoute>
+                            <AdminStudents />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/admin-profile"
+                    element={
+                        <ProtectedRoute>
+                            <AdminProfile />
                         </ProtectedRoute>
                     }
                 />
