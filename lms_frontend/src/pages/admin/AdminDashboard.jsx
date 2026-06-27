@@ -1,4 +1,4 @@
-import AdminNavbar from "../components/navbars/AdminNavbar";
+import AdminNavbar from "../../components/navbars/AdminNavbar";
 function AdminDashboard() {
   return (
     <div>

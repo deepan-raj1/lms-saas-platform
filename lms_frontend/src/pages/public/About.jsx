@@ -1,5 +1,5 @@
-import PublicNavbar from "../components/navbars/PublicNavbar";
-import PublicFooter from "../components/PublicFooter";
+import PublicNavbar from "../../components/navbars/PublicNavbar";
+import PublicFooter from "../../components/PublicFooter";
 
 
 function About() {

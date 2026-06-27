@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import API from "../services/api";
-import StudentNavbar from "../components/navbars/StudentNavbar";
+import API from "../../services/api";
+import StudentNavbar from "../../components/navbars/StudentNavbar";
 import { useNavigate } from "react-router-dom";
 
 

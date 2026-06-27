@@ -4,18 +4,65 @@ const API = axios.create({
   baseURL: "http://127.0.0.1:8000/api/",
 });
 
+// API.interceptors.request.use((config) => {
+//   const token = localStorage.getItem("token");
+
+//   if (
+//       token &&
+//       !config.url.includes("users/login/")
+//   ) {
+//       config.headers.Authorization = `Bearer ${token}`;
+//   }
+
+//   return config;
+// });
+
+// API.interceptors.request.use((config) => {
+
+//     const token = localStorage.getItem("token");
+
+//     // Public endpoints
+//     const publicUrls = [
+//         "users/login/",
+//         "users/register/",
+//         "courses/",
+//     ];
+
+//     const isPublic = publicUrls.some(url =>
+//         config.url.startsWith(url)
+//     );
+
+//     if (token && !isPublic) {
+//         config.headers.Authorization = `Bearer ${token}`;
+//     }
+
+//     return config;
+// });
+
 API.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
 
-  if (
-      token &&
-      !config.url.includes("users/login/")
-  ) {
-      config.headers.Authorization = `Bearer ${token}`;
-  }
+    const publicUrls = [
+        "users/login/",
+        "users/register/",
+    ];
 
-  return config;
+    const isPublic =
+        publicUrls.some(url => config.url.startsWith(url)) ||
+
+        // Public Course List
+        config.url === "courses/" ||
+
+        // Public Course Detail
+        /^courses\/\d+\/$/.test(config.url);
+
+    if (token && !isPublic) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    return config;
 });
+
 
 API.interceptors.response.use(
   (response) => response,

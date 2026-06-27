@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import InstructorNavbar from "../components/navbars/InstructorNavbar";
+import InstructorNavbar from "../../components/navbars/InstructorNavbar";
 
 function ManageCourse() {
 

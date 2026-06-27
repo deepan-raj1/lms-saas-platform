@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import API from "../services/api";
-import PublicNavbar from "../components/navbars/PublicNavbar";
+import API from "../../services/api";
+import PublicNavbar from "../../components/navbars/PublicNavbar";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import PublicFooter from "../components/PublicFooter";
+import PublicFooter from "../../components/PublicFooter";
 
 function PublicCourses() {
     const [courses, setCourses] = useState([]);

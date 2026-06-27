@@ -1,21 +1,29 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import LandingPage from "./pages/LandingPage";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import StudentDashboard from "./pages/StudentDashboard";
-import InstructorDashboard from "./pages/InstructorDashboard";
-import AdminDashboard from "./pages/AdminDashboard";
+import LandingPage from "./pages/public/LandingPage";
+import Register from "./pages/public/Register";
+import Login from "./pages/public/Login";
+import StudentDashboard from "./pages/student/StudentDashboard";
+import InstructorDashboard from "./pages/instructor/InstructorDashboard";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
-import PublicCourses from "./pages/PublicCourses";
-import CreateCourse from "./pages/CreateCourse";
-import InstructorCourses from "./pages/InstructorCourses";
-import EditCourse from "./pages/EditCourse";
-import Profile from "./pages/Profile";
-import CourseDetail from "./pages/CourseDetail";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import ManageCourse from "./pages/ManageCourse";
+import PublicCourses from "./pages/public/PublicCourses";
+import CreateCourse from "./pages/instructor/CreateCourse";
+import InstructorCourses from "./pages/instructor/InstructorCourses";
+import EditCourse from "./pages/instructor/EditCourse";
+import InstructorProfile from "./pages/instructor/InstructorProfile";
+import StudentProfile from "./pages/student/StudentProfile";
+import CourseDetail from "./pages/public/CourseDetail";
+import About from "./pages/public/About";
+import Contact from "./pages/public/Contact";
+import ManageCourse from "./pages/instructor/ManageCourse";
+import MyCourses from "./pages/student/MyCourses";
+import Certificates from "./pages/student/Certificates";
+import BrowseCourses from "./pages/student/BrowseCourses";
+
+
+
+
 
 
 
@@ -92,10 +100,10 @@ function App() {
                     }
                 />
                 <Route
-                    path="/profile"
+                    path="/instructor-profile"
                     element={
                         <ProtectedRoute>
-                            <Profile />
+                            <InstructorProfile />
                         </ProtectedRoute>
                     }
                 />
@@ -121,12 +129,46 @@ function App() {
                         </ProtectedRoute>
                     }
                 />
+                <Route
+                    path="/my-courses"
+                    element={
+                        <ProtectedRoute>
+                            <MyCourses />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/certificates"
+                    element={
+                        <ProtectedRoute>
+                            <Certificates />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/student-profile"
+                    element={
+                        <ProtectedRoute>
+                            <StudentProfile />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/browse-courses"
+                    element={
+                        <ProtectedRoute>
+                            <BrowseCourses />
+                        </ProtectedRoute>
+                    }
+                />
             </Routes>
         </BrowserRouter>
     );
 }
 
 export default App;
+
+
 
 
 

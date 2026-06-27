@@ -1,6 +1,6 @@
 import { useState } from "react";
-import API from "../services/api";
-import InstructorNavbar from "../components/navbars/InstructorNavbar";
+import API from "../../services/api";
+import InstructorNavbar from "../../components/navbars/InstructorNavbar";
 import { useNavigate } from "react-router-dom";
 
 function CreateCourse() {

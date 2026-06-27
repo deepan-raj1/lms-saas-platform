@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import API from "../services/api";
-import InstructorNavbar from "../components/navbars/InstructorNavbar";
+import API from "../../services/api";
+import InstructorNavbar from "../../components/navbars/InstructorNavbar";
 
-function Profile() {
+function InstructorProfile() {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -30,5 +30,5 @@ function Profile() {
     );
 }
 
-export default Profile;
+export default InstructorProfile;
 

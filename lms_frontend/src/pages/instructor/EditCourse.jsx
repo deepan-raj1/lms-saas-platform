@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import API from "../services/api";
-import InstructorNavbar from "../components/navbars/InstructorNavbar";
+import API from "../../services/api";
+import InstructorNavbar from "../../components/navbars/InstructorNavbar";
 
 function EditCourse() {
     const { Id } = useParams();
