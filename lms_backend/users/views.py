@@ -4,12 +4,12 @@ from django.shortcuts import render
 from rest_framework import generics 
 from rest_framework import status
 from .models import User
-from .serializers import RegisterSerializer, LoginSerializer
+from .serializers import RegisterSerializer, LoginSerializer, AdminInstructorSerializer 
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from .permissions import IsInstructorOrAdmin
+from .permissions import IsInstructorOrAdmin, IsAdminUserRole
 
 
 class RegisterView(generics.CreateAPIView):
@@ -32,6 +32,49 @@ class LoginView(APIView):
             status=status.HTTP_200_OK
         )
 
+# View for Admin to list Instructors
+# class AdminInstructorListView(APIView):
+
+#     permission_classes = [IsAuthenticated, IsAdminUserRole]
+
+#     def get(self, request):
+
+#         instructors = User.objects.filter(
+#             role="instructor"
+#         )
+
+#         serializer = AdminInstructorSerializer(
+#             instructors,
+#             many=True
+#         )
+
+#         return Response(serializer.data)
+
+class AdminInstructorListView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+
+        print("========== DEBUG ==========")
+        print("Authenticated:", request.user.is_authenticated)
+        print("User:", request.user)
+        print("Role:", getattr(request.user, "role", None))
+        print("===========================")
+
+        if request.user.role != "admin":
+            return Response(
+                {"detail": "Permission denied"},
+                status=403
+            )
+        instructors = User.objects.filter(role="instructor")
+
+        serializer = AdminInstructorSerializer(
+            instructors,
+            many=True
+        )
+
+        return Response(serializer.data)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -44,3 +87,4 @@ def profile_view(request):
         'mobile_number': request.user.mobile_number,
         'whatsapp_number': request.user.whatsapp_number,
     })
+

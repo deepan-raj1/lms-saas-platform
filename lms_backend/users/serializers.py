@@ -56,3 +56,23 @@ class LoginSerializer(serializers.Serializer):
             "username": user.username,
             "email": user.email,
         }
+    
+
+
+
+# For Admin to view Instructor details along with the count of courses they have created
+class AdminInstructorSerializer(serializers.ModelSerializer):
+
+    courses_count = serializers.SerializerMethodField()
+
+    class Meta:
+        model = User
+        fields = [
+            "id",
+            "username",
+            "email",
+            "courses_count",
+        ]
+
+    def get_courses_count(self, obj):
+        return obj.course_set.count()
