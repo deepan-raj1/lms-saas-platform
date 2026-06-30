@@ -9,18 +9,44 @@ function AdminCourses() {
     const [search, setSearch] = useState("");
     const navigate = useNavigate();
 
-    useEffect(() => {
+    const fetchCourses = () => {
         API.get("courses/")
             .then((res) => setCourses(res.data))
             .catch(() => alert("Failed to load courses"));
+    };
+
+    useEffect(() => {
+        fetchCourses();
     }, []);
 
     const filteredCourses = courses.filter(course =>
         course.title.toLowerCase().includes(search.toLowerCase())
     );
 
-    const handleDelete = (id) => {
-        alert(`Delete Course ${id} (Backend Later)`);
+    const handleDelete = async (id) => {
+
+        const confirmDelete = window.confirm(
+            "Are you sure you want to delete this course?"
+        );
+
+        if (!confirmDelete) return;
+
+        try {
+
+            await API.delete(`courses/${id}/edit/`);
+
+            alert("Course deleted successfully.");
+
+            fetchCourses();
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert("Failed to delete course.");
+
+        }
+
     };
 
     return (
