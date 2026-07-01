@@ -8,6 +8,7 @@ function EditCourse() {
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [price, setPrice] = useState(0);
     const [thumbnail, setThumbnail] = useState(null);
     const [currentThumbnail, setCurrentThumbnail] = useState("");
     const [thumbnailPreview, setThumbnailPreview] = useState("");
@@ -17,6 +18,7 @@ function EditCourse() {
             .then((res) => {
                 setTitle(res.data.title);
                 setDescription(res.data.description);
+                setPrice(res.data.price);
                 setCurrentThumbnail(res.data.thumbnail);
             })
             .catch(() => alert("Error fetching course details"));
@@ -28,6 +30,7 @@ function EditCourse() {
 
             formData.append("title", title);
             formData.append("description", description);
+            formData.append("price", price || 0); // Default to 0 if price is empty
 
             if (thumbnail) {
                 formData.append("thumbnail", thumbnail);
@@ -105,6 +108,27 @@ function EditCourse() {
             onChange={(e) => setDescription(e.target.value)}
             className="w-full border rounded-lg p-3"
         />
+
+    </div>
+
+    <div className="mb-4">
+
+        <label className="block mb-2 font-medium">
+            Course Price (₹)
+        </label>
+
+        <input
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            className="w-full border rounded-lg p-3"
+            min="0"
+            placeholder="Enter course price"
+        />
+
+        <p className="text-sm text-gray-500 mt-1">
+            Enter 0 for a free course.
+        </p>
 
     </div>
 

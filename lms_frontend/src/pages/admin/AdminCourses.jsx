@@ -167,6 +167,24 @@ function AdminCourses() {
 
                                     </p>
 
+                                    <div className="mt-4">
+
+                                        {
+                                            course.price == 0 ?
+
+                                            <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full font-semibold">
+                                                FREE
+                                            </span>
+
+                                            :
+
+                                            <span className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-semibold">
+                                                ₹ {course.price}
+                                            </span>
+                                        }
+
+                                    </div>
+
                                     <div className="flex gap-3 mt-6">
 
                                         <button

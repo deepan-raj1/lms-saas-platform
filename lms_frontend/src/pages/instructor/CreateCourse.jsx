@@ -8,7 +8,9 @@ function CreateCourse() {
   const [description, setDescription] = useState("");
   const [thumbnail, setThumbnail] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [price, setPrice] = useState("");
   const navigate = useNavigate();
+  const formData = new FormData();
 
   const handleCreate = async () => {
 
@@ -29,6 +31,7 @@ function CreateCourse() {
 
       formData.append("title", title);
       formData.append("description", description);
+      formData.append("price", price || 0); // Default to 0 if price is empty
 
       if (thumbnail) {
         formData.append("thumbnail", thumbnail);
@@ -131,6 +134,22 @@ function CreateCourse() {
                 className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
+
+            <div>
+              <label className="block mb-2 font-semibold">
+                  Course Price (₹)
+              </label>
+
+              <input
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  className="w-full border rounded-lg p-3"
+                  placeholder="Enter price (0 for Free)"
+              />
+          </div>
 
             <div className="flex gap-4 pt-4">
 

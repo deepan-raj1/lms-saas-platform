@@ -60,12 +60,40 @@ function CourseDetail() {
                         {course.description}
                     </p>
 
+                    <div className="mt-4">
+
+                        {
+                            course.price == 0 ?
+
+                            <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full font-semibold">
+                                FREE
+                            </span>
+
+                            :
+
+                            <span className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-semibold">
+                                ₹ {course.price}
+                            </span>
+                        }
+
+                    </div>
+
                     <div className="mt-8">
                         <button
-                            onClick={() => navigate("/login")}
-                            className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg"
+                            onClick={() => handleEnroll(course.id)}
+                            className={`w-full py-3 rounded-lg text-white ${
+                                course.price == 0
+                                    ? "bg-green-600 hover:bg-green-700"
+                                    : "bg-indigo-600 hover:bg-indigo-700"
+                            }`}
                         >
-                            Enroll Now
+
+                            {
+                                course.price == 0
+                                    ? "Enroll Now"
+                                    : "Buy Now"
+                            }
+
                         </button>
                     </div>
 
