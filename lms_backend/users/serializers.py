@@ -76,3 +76,22 @@ class AdminInstructorSerializer(serializers.ModelSerializer):
 
     def get_courses_count(self, obj):
         return obj.course_set.count()
+    
+
+# For Admin to view Student details
+class AdminStudentSerializer(serializers.ModelSerializer):
+
+    enrolled_courses = serializers.SerializerMethodField()
+
+    class Meta:
+        model = User
+        fields = [
+            "id",
+            "username",
+            "email",
+            "enrolled_courses",
+        ]
+
+    def get_enrolled_courses(self, obj):
+        return obj.enrollment_set.count()
+

@@ -4,7 +4,7 @@ from django.shortcuts import render
 from rest_framework import generics 
 from rest_framework import status
 from .models import User
-from .serializers import RegisterSerializer, LoginSerializer, AdminInstructorSerializer 
+from .serializers import RegisterSerializer, LoginSerializer, AdminInstructorSerializer, AdminStudentSerializer 
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -31,25 +31,7 @@ class LoginView(APIView):
             serializer.validated_data,
             status=status.HTTP_200_OK
         )
-
-# View for Admin to list Instructors
-# class AdminInstructorListView(APIView):
-
-#     permission_classes = [IsAuthenticated, IsAdminUserRole]
-
-#     def get(self, request):
-
-#         instructors = User.objects.filter(
-#             role="instructor"
-#         )
-
-#         serializer = AdminInstructorSerializer(
-#             instructors,
-#             many=True
-#         )
-
-#         return Response(serializer.data)
-
+    
 class AdminInstructorListView(APIView):
 
     permission_classes = [IsAuthenticated]
@@ -75,6 +57,51 @@ class AdminInstructorListView(APIView):
         )
 
         return Response(serializer.data)
+
+# class AdminStudentListView(APIView):
+
+#     permission_classes = [IsAuthenticated, IsAdminUserRole]
+
+#     def get(self, request):
+
+#         students = User.objects.filter(
+#             role="student"
+#         )
+
+#         serializer = AdminStudentSerializer(
+#             students,
+#             many=True
+#         )
+
+#         return Response(serializer.data)
+
+
+class AdminStudentListView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+
+        print("===== STUDENT DEBUG =====")
+        print(request.user)
+        print(request.user.role)
+        print("========================")
+
+        if request.user.role != "admin":
+            return Response(
+                {"detail": "Permission denied"},
+                status=403
+            )
+
+        students = User.objects.filter(role="student")
+
+        serializer = AdminStudentSerializer(
+            students,
+            many=True
+        )
+
+        return Response(serializer.data)
+
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
