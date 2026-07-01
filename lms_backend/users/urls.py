@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import (RegisterView, LoginView, profile_view, AdminInstructorListView, AdminStudentListView)
+from .views import (RegisterView, LoginView, profile_view, AdminInstructorListView, AdminStudentListView, AdminDashboardStatsView)
 
 urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
@@ -7,5 +7,7 @@ urlpatterns = [
     path('profile/', profile_view, name='profile'),
     path('admin-instructors/', AdminInstructorListView.as_view(), name='admin-instructors'),
     path('admin-students/', AdminStudentListView.as_view(), name='admin-students'),
+    path("admin-dashboard-stats/",AdminDashboardStatsView.as_view(),name="admin-dashboard-stats"),
 ]
+
 

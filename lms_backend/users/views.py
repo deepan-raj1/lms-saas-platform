@@ -10,7 +10,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .permissions import IsInstructorOrAdmin, IsAdminUserRole
-
+from courses.models import Course, Enrollment
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
@@ -58,24 +58,7 @@ class AdminInstructorListView(APIView):
 
         return Response(serializer.data)
 
-# class AdminStudentListView(APIView):
-
-#     permission_classes = [IsAuthenticated, IsAdminUserRole]
-
-#     def get(self, request):
-
-#         students = User.objects.filter(
-#             role="student"
-#         )
-
-#         serializer = AdminStudentSerializer(
-#             students,
-#             many=True
-#         )
-
-#         return Response(serializer.data)
-
-
+# Admin view to list all students
 class AdminStudentListView(APIView):
 
     permission_classes = [IsAuthenticated]
@@ -101,6 +84,33 @@ class AdminStudentListView(APIView):
         )
 
         return Response(serializer.data)
+
+
+class AdminDashboardStatsView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+
+        if request.user.role != "admin":
+            return Response(
+                {"detail": "Permission denied"},
+                status=403
+            )
+
+        data = {
+            "total_courses": Course.objects.count(),
+            "total_instructors": User.objects.filter(
+                role="instructor"
+            ).count(),
+            "total_students": User.objects.filter(
+                role="student"
+            ).count(),
+            "total_enrollments": Enrollment.objects.count(),
+        }
+
+        return Response(data)
+
 
 
 @api_view(['GET'])

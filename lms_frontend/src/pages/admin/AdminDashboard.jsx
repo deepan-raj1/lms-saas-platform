@@ -1,9 +1,30 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import API from "../../services/api";
 import AdminNavbar from "../../components/navbars/AdminNavbar";
 
 function AdminDashboard() {
 
     const username = localStorage.getItem("username");
+    const [stats, setStats] = useState({
+        total_courses: 0,
+        total_students: 0,
+        total_instructors: 0,
+        total_enrollments: 0
+    });
+
+    useEffect(() => {
+
+        API.get("users/admin-dashboard-stats/")
+            .then((res) => {
+                setStats(res.data);
+            })
+            .catch((err) => {
+                console.log(err.response);
+            });
+    }, []);
+
+
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -37,7 +58,7 @@ function AdminDashboard() {
                         </h3>
 
                         <p className="text-4xl font-bold mt-4 text-indigo-600">
-                            0
+                            {stats.total_courses}
                         </p>
 
                     </div>
@@ -49,7 +70,7 @@ function AdminDashboard() {
                         </h3>
 
                         <p className="text-4xl font-bold mt-4 text-green-600">
-                            0
+                            {stats.total_students}
                         </p>
 
                     </div>
@@ -61,7 +82,7 @@ function AdminDashboard() {
                         </h3>
 
                         <p className="text-4xl font-bold mt-4 text-orange-600">
-                            0
+                            {stats.total_instructors}
                         </p>
 
                     </div>
@@ -73,7 +94,7 @@ function AdminDashboard() {
                         </h3>
 
                         <p className="text-4xl font-bold mt-4 text-red-600">
-                            0
+                            {stats.total_enrollments}
                         </p>
 
                     </div>
