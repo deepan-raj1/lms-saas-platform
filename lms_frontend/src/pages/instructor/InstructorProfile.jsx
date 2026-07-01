@@ -6,7 +6,7 @@ function InstructorProfile() {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        API.get("users/profile/")
+        API.get("/users/profile")
             .then((res) => setUser(res.data))
             .catch(() => alert("Error fetching profile"));
     }, []);
@@ -31,4 +31,5 @@ function InstructorProfile() {
 }
 
 export default InstructorProfile;
+
 

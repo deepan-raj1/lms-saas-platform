@@ -61,7 +61,7 @@ function StudentProfile() {
                 </div>
 
                 {/* Statistics */}
-
+{/* 
                 <div className="grid md:grid-cols-4 gap-6 mt-8">
 
                     <div className="bg-white rounded-xl shadow p-6">
@@ -112,7 +112,8 @@ function StudentProfile() {
 
                     </div>
 
-                </div>
+                </div> */}
+
 
                 {/* Details */}
 
@@ -169,7 +170,7 @@ function StudentProfile() {
                     </div>
 
                     {/* Learning Summary */}
-
+{/* 
                     <div className="bg-white rounded-2xl shadow-lg p-8">
 
                         <h2 className="text-2xl font-bold mb-6">
@@ -228,7 +229,7 @@ function StudentProfile() {
 
                         </div>
 
-                    </div>
+                    </div> */}
 
                 </div>
 

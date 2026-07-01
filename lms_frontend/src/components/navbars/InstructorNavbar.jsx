@@ -43,7 +43,7 @@ function InstructorNavbar() {
           </Link>
 
           <Link
-            to="/profile"
+            to="/instructor-profile"
             className="hover:text-indigo-200"
           >
             Profile
