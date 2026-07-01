@@ -6,6 +6,7 @@ class Course(models.Model):
     description = models.TextField()
     thumbnail = models.ImageField(upload_to='course_thumbnails/', null=True, blank=True)
     instructor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=8, decimal_places=2, default=0)
 
     def __str__(self):
         return self.title
